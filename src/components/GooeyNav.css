@@ -1,0 +1,96 @@
+:root {
+  --color-1: #a855f7;
+  --color-2: #ec4899;
+  --color-3: #22d3ee;
+  --color-4: #ffffff;
+}
+
+.gooey-nav-container {
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  padding: 0 1em;
+  margin: 0;
+  z-index: 3;
+}
+
+li {
+  position: relative;
+  border-radius: 100vw;
+}
+
+a {
+  padding: 0.6em 1em;
+  color: white;
+  text-decoration: none;
+}
+
+/* 🔹 Smooth text hover */
+.gooey-nav-link {
+  display: inline-block;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.35s ease,
+    color 0.35s ease;
+}
+
+li:hover .gooey-nav-link {
+  transform: translateY(-2px) scale(1.04);
+  letter-spacing: 0.04em;
+}
+
+li.active .gooey-nav-link {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* 🔹 Gooey effect */
+.effect {
+  position: absolute;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+
+.effect.filter {
+  filter: blur(7px) contrast(100);
+  mix-blend-mode: lighten;
+}
+
+.effect.filter::after {
+  content: "";
+  background: white;
+  border-radius: 100vw;
+  width: 100%;
+  height: 100%;
+  animation: pill 0.3s ease both;
+}
+
+@keyframes pill {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🔹 Particles */
+.particle,
+.point {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.point {
+  background: var(--color);
+  animation: point var(--time) ease both;
+}
+
+@keyframes point {
+  0% { transform: scale(0); }
+  60% { transform: scale(var(--scale)); }
+  100% { transform: scale(0); }
+}

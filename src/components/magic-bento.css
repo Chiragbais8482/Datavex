@@ -1,0 +1,7 @@
+.global-spotlight {
+  will-change: transform, opacity;
+}
+
+.magic-bento-card {
+  border-radius: 24px;
+}
